@@ -1,5 +1,7 @@
 "https://leetcode.com/problems/backspace-string-compare/"
 
+# Solution 1: Pointer
+
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
         def removeHash(char):
@@ -16,3 +18,6 @@ class Solution:
             return char
                   
         return True if removeHash(s)==removeHash(t) else False
+
+    
+# Solution 2: Stack
