@@ -1,5 +1,6 @@
 "https://leetcode.com/problems/permutation-in-string/"
 # 比28多一步
+# collections.Counter(): A Counter is a container that keeps track of how many times equivalent values are added.
 
 from collections import Counter
 
