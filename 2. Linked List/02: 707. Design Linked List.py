@@ -70,3 +70,126 @@ class MyLinkedList:
 # obj.addAtTail(val)
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
+
+
+
+
+# Solution 2: Doubly Linked List
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.pre = None
+        self.next = None
+        
+class MyLinkedList:
+
+    def __init__(self):
+        self.size = 0
+        self.dummy_head = Node(0)
+        self.dummy_tail = Node(0)
+        self.dummy_head.next = self.dummy_tail
+        self.dummy_tail.pre = self.dummy_head
+
+    def get(self, index: int) -> int:
+        if index<0 or index>=self.size:
+            return -1
+        
+        if index < self.size-1-index: # index ahead
+            cur_node = self.dummy_head
+            for _ in range(index+1):
+                cur_node = cur_node.next
+        else:
+            cur_node = self.dummy_tail
+            for _ in range(self.size-index):
+                cur_node = cur_node.pre
+        return cur_node.val
+                
+
+    def addAtHead(self, val: int) -> None:
+        # find the predecessor and successor of the new node
+        pred = self.dummy_head
+        succ = self.dummy_head.next
+        
+        # initilize the new node
+        new_node = Node(val)
+        
+        # add
+        new_node.pre = pred
+        new_node.next = succ
+        pred.next = new_node
+        succ.pre = new_node
+        self.size += 1
+        
+
+    def addAtTail(self, val: int) -> None:
+        # find the predecessor and successor of the new node
+        pred = self.dummy_tail.pre
+        succ = self.dummy_tail
+        
+        # initilize the new node
+        new_node = Node(val)
+        # add
+        new_node.pre = pred
+        new_node.next = succ
+        pred.next = new_node
+        succ.pre = new_node
+        self.size += 1
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index<0:
+            index = 0
+        elif index>self.size:
+            return
+        
+        # 1) find the predecessor and successor of the new node
+        if index < self.size-1-index:
+            pre_node = self.dummy_head
+            for _ in range(index):
+                pre_node = pre_node.next
+            next_node = pre_node.next
+        else:
+            next_node = self.dummy_tail
+            for _ in range(self.size-index):
+                next_node = next_node.pre
+            pre_node = next_node.pre
+        
+        # 2) initilize the new node
+        new_node = Node(val)
+        # 3) add
+        new_node.next = next_node
+        new_node.pre = pre_node
+        pre_node.next = new_node
+        next_node.pre = new_node
+        self.size += 1
+        
+
+    def deleteAtIndex(self, index: int) -> None:
+        if index<0 or index>=self.size:
+            return
+        
+        # 1) find the predecessor and successor of the node to be deleted
+        if index < self.size-1-index:
+            pre_node = self.dummy_head
+            for _ in range(index):
+                pre_node = pre_node.next
+            next_node = pre_node.next.next
+        else:
+            next_node = self.dummy_tail
+            for _ in range(self.size-1-index):
+                next_node = next_node.pre
+            pre_node = next_node.pre.pre
+        
+        # 2) delete
+        pre_node.next = next_node
+        next_node.pre = pre_node
+        self.size -= 1
+        
+
+
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)
