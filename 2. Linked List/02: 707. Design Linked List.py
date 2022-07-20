@@ -96,11 +96,11 @@ class MyLinkedList:
         
         if index < self.size-1-index: # index ahead
             cur_node = self.dummy_head
-            for _ in range(index+1):
+            for _ in range(index+1): # 取到
                 cur_node = cur_node.next
         else:
             cur_node = self.dummy_tail
-            for _ in range(self.size-index):
+            for _ in range(self.size-index): # 取到
                 cur_node = cur_node.pre
         return cur_node.val
                 
@@ -144,12 +144,12 @@ class MyLinkedList:
         # 1) find the predecessor and successor of the new node
         if index < self.size-1-index:
             pre_node = self.dummy_head
-            for _ in range(index):
+            for _ in range(index): # 取不到
                 pre_node = pre_node.next
             next_node = pre_node.next
         else:
             next_node = self.dummy_tail
-            for _ in range(self.size-index):
+            for _ in range(self.size-index): # 取到
                 next_node = next_node.pre
             pre_node = next_node.pre
         
@@ -170,12 +170,12 @@ class MyLinkedList:
         # 1) find the predecessor and successor of the node to be deleted
         if index < self.size-1-index:
             pre_node = self.dummy_head
-            for _ in range(index):
+            for _ in range(index): # 取不到
                 pre_node = pre_node.next
             next_node = pre_node.next.next
         else:
             next_node = self.dummy_tail
-            for _ in range(self.size-1-index):
+            for _ in range(self.size-1-index): # 取不到
                 next_node = next_node.pre
             pre_node = next_node.pre.pre
         
