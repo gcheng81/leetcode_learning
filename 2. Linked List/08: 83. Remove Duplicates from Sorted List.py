@@ -14,10 +14,10 @@ class Solution:
         cur = head.next
         
         while cur:
-            if pre.val == cur.val:
+            if pre.val == cur.val: # 如果相等，则pre不动，只移动cur
                 pre.next = cur.next
                 cur = cur.next
-            else:
+            else: # 如果不等，则pre和cur都向前移动一位
                 pre = pre.next
                 cur = cur.next
         return dummy_head.next
