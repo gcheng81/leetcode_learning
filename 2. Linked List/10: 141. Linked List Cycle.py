@@ -1,5 +1,6 @@
 “https://leetcode.com/problems/linked-list-cycle/”
 
+# Solution 1: Two Pointers
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -19,3 +20,6 @@ class Solution:
                 return True
             
         return False
+
+    
+# Solution 2: Hash Table
