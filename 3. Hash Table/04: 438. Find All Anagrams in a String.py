@@ -11,7 +11,7 @@ class Solution:
         pCount = {}
         sCount = {}
         for i in range(len(p)):
-			pCount[p[i]] = 1 + pCount.get(p[i], 0)
+            pCount[p[i]] = 1 + pCount.get(p[i], 0)
             sCount[s[i]] = 1 + sCount.get(s[i], 0)
         # first compare the first sub-string of s
         ans = [0] if sCount == pCount else []
@@ -37,4 +37,5 @@ class Solution:
 
 # Why initialize sCount hashmap with the first sub-string of s not with NULL?
 # Because in this way, when sliding window every time, we add s[end] to window and 
-# remove s[start] from window.
+# remove s[start] from window
+
