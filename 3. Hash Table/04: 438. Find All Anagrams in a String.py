@@ -34,3 +34,7 @@ class Solution:
 # dictionary.get(keyname, value)
     # keyname: Required. The keyname of the item you want to return the value from
     # value: Optional. A value to return if the specified key does not exist.
+
+# Why initialize sCount hashmap with the first sub-string of s not with NULL?
+# Because in this way, when sliding window every time, we add s[end] to window and 
+# remove s[start] from window.
