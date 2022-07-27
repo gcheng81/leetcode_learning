@@ -34,11 +34,12 @@ class Solution:
             short = nums1
         
         ref = {}
-        for i in range(len(short)):
-            ref[short[i]] = 1 + ref.get(short[i], 0)
+        for i in short:
+            ref[i] = 1 + ref.get(i, 0)
         
-        for j in range(len(long)):
-            if long[j] in ref.keys() and ref[long[j]]>0:
-                ans.append(long[j])
-                ref[long[j]] -= 1 # key point!!!
+        for j in long:
+            if j in ref and ref[j]>0:
+                ans.append(j)
+                ref[j] -= 1
         return ans
+        
