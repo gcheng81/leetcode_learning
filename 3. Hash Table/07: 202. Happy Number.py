@@ -5,7 +5,7 @@ class Solution:
     def isHappy(self, n: int) -> bool:
         def calculate_sum(num):
             total = 0
-            while num: # num = 82
+            while num: # if num = 82
                 total += (num % 10) ** 2 # Get 2^2
                 num = num // 10 # Get 8
             return total
@@ -20,3 +20,4 @@ class Solution:
         return True
 
 # Solution 2: Floyd's Cycle-Finding Algorithm
+
