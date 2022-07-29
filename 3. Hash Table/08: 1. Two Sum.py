@@ -12,3 +12,13 @@ class Solution:
                 return [record[m], index]
             
 # Using enumerate()          
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        record = {}
+        for key, value in enumerate(nums):
+            m = target-value
+            if m not in record:
+                record[value] = key
+            else:
+                return [record[m], key]
+
