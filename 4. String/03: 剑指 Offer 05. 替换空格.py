@@ -2,7 +2,7 @@
 
 # Solution: no extra space
 # Notice:
-# (1) how to use list.extend(iterable) function
+# (1) how to use list.extend(iterable) function; what is iterable
 # (2) how to add "%20": slice
 class Solution:
     def replaceSpace(self, s: str) -> str:
