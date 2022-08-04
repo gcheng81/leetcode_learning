@@ -1,8 +1,8 @@
 "https://leetcode.com/problems/implement-stack-using-queues/"
 
 # Queue => Stack
+# Solution 1: Using only one queue
 # Reference: https://www.youtube.com/watch?v=rW4vm0-DLYc
-
 class MyStack:
 
     def __init__(self):
@@ -37,3 +37,6 @@ class MyStack:
 # param_2 = obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.empty()
+
+
+# Solution 2: Using two queues
