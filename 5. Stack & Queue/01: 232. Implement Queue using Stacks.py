@@ -1,7 +1,7 @@
 ”https://leetcode.com/problems/implement-queue-using-stacks/“
   
 # Stack => Queue
-# FILO  => FIFO
+# LIFO  => FIFO
 # Using two stacks: stack_in & stack_out
 # 讲得好！ https://www.youtube.com/watch?v=RzT6YgrGTyg
 
