@@ -33,4 +33,32 @@ class Solution:
             return False
         
 
- # Solution 2: 右括号入栈
+# Solution 2: 右括号入栈
+# （1）一般
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        
+        for char in s:
+            if char == '(': 
+                stack.append(')')
+            elif char == '[':
+                stack.append(']')
+            elif char == '{':
+                stack.append('}')
+            else:
+                if len(stack) == 0:
+                    return False
+                
+                top = stack.pop()
+                if top != char:
+                    return False
+            
+        if len(stack) == 0:
+            return True
+        else:
+            return False
+            
+           
+
+# （2）优化：用字典
