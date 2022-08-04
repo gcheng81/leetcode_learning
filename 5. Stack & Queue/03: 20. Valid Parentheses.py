@@ -62,3 +62,29 @@ class Solution:
            
 
 # （2）优化：用字典
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        mapping = {
+            '(': ')',
+            '[': ']',
+            '{': '}'
+        }
+        
+        for char in s:
+            if char in mapping:
+                stack.append(mapping[char])
+            else:
+                if len(stack) == 0:
+                    return False
+                else:
+                    top = stack.pop()
+                    if char != top:
+                        return False
+        
+        if len(stack) == 0:
+            return True
+        else:
+            return False
+                
+        
