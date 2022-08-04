@@ -1,6 +1,6 @@
 "https://leetcode.com/problems/valid-parentheses/"
 
-# Solution 1:
+# Solution 1: 左括号入栈
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
@@ -32,3 +32,5 @@ class Solution:
         else:
             return False
         
+
+ # Solution 2: 右括号入栈
