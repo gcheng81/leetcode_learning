@@ -34,7 +34,7 @@ class Solution:
         
 
 # Solution 2: 右括号入栈
-# （1）一般
+# （1）一般方法
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
