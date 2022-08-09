@@ -58,3 +58,32 @@ class Solution:
             res.append(cur.val)
             cur = cur.right
         return res    
+
+ 
+# Solution 3: 标记法 or 统一迭代法
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # left, mid, right
+        res = []
+        stack = []
+        
+        if root:
+            stack.append(root)
+        
+        while stack:
+            cur_node = stack.pop()
+            if cur_node:
+                if cur_node.right:
+                    stack.append(cur_node.right)
+                
+                stack.append(cur_node)
+                stack.append(None) #中节点访问过，但是还没有处理，加入空节点做为标记
+                
+                if cur_node.left:
+                    stack.append(cur_node.left)
+            
+            else:#只有遇到空节点的时候，才将下一个节点放进结果集
+                cur_node = stack.pop()
+                res.append(cur_node.val)
+        
+        return res
