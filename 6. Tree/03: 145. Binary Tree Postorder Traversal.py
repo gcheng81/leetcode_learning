@@ -25,3 +25,26 @@ class Solution:
             
 
 # Solution 2: Iterative Traversal
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # left, right, mid
+        if root == None:
+            return []
+        
+        res = []
+        stack = [root]
+        
+        while stack:
+            cur_node = stack.pop()
+            # append mid
+            res.append(cur_node.val)
+            # push left
+            if cur_node.left:
+                stack.append(cur_node.left)
+            # push right
+            if cur_node.right:
+                stack.append(cur_node.right)
+        # 翻转数组
+        return res[::-1]
+    
+  # https://stackoverflow.com/questions/31633635/what-is-the-meaning-of-inta-1-in-python
