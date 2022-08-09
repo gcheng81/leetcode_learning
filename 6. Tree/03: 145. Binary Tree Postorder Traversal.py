@@ -46,5 +46,6 @@ class Solution:
                 stack.append(cur_node.right)
         # 翻转数组
         return res[::-1]
-    
-  # https://stackoverflow.com/questions/31633635/what-is-the-meaning-of-inta-1-in-python
+ 
+# What's res[::-1]?
+# https://stackoverflow.com/questions/31633635/what-is-the-meaning-of-inta-1-in-python
