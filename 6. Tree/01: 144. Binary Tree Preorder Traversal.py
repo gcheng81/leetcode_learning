@@ -6,6 +6,8 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# Solution 1: Recursive Traversal
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         # mid, left, right
@@ -20,3 +22,5 @@ class Solution:
         
         traversal(root)
         return res
+
+# Solution 2: Iterative Traversal
