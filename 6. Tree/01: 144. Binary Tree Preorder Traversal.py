@@ -24,3 +24,22 @@ class Solution:
         return res
 
 # Solution 2: Iterative Traversal
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # mid, left, right
+        if root == None:
+            return []
+        
+        res = []
+        stack = [root]
+        while stack:
+            cur_node = stack.pop()
+            # append mid
+            res.append(cur_node.val)
+            # push right
+            if cur_node.right:
+                stack.append(cur_node.right)
+            # push left
+            if cur_node.left:
+                stack.append(cur_node.left)
+        return res
