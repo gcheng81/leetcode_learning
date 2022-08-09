@@ -24,6 +24,7 @@ class Solution:
         return res
 
 # Solution 2: Iterative Traversal
+# !Notice: The order of entering the stack
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         # mid, left, right
