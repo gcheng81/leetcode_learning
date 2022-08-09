@@ -49,3 +49,34 @@ class Solution:
  
 # What's res[::-1]?
 # https://stackoverflow.com/questions/31633635/what-is-the-meaning-of-inta-1-in-python
+
+
+
+# Solution 3: 标记法 or 统一迭代法
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # left, right, mid
+        res = []
+        stack = []
+        
+        if root:
+            stack.append(root)
+        
+        while stack:
+            cur = stack.pop()
+            if cur:
+                stack.append(cur)
+                stack.append(None)
+                
+                if cur.right:
+                    stack.append(cur.right)
+                    
+                if cur.left:
+                    stack.append(cur.left)
+            else:
+                cur = stack.pop()
+                res.append(cur.val)
+        
+        return res
+        
+        
