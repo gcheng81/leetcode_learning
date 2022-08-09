@@ -44,3 +44,33 @@ class Solution:
             if cur_node.left:
                 stack.append(cur_node.left)
         return res
+
+    
+# Solution 3: 标记法 or 统一迭代法
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # mid, left, right
+        res = []
+        stack = []
+        
+        if root:
+            stack.append(root)
+        
+        while stack:
+            cur = stack.pop()
+            if cur:
+                if cur.right:
+                    stack.append(cur.right)
+                
+                if cur.left:
+                    stack.append(cur.left)
+                
+                stack.append(cur)
+                stack.append(None)
+            
+            else:
+                cur = stack.pop()
+                res.append(cur.val)
+        
+        return res
+                
