@@ -71,19 +71,19 @@ class Solution:
             stack.append(root)
         
         while stack:
-            cur_node = stack.pop()
-            if cur_node:
-                if cur_node.right:
-                    stack.append(cur_node.right)
+            cur = stack.pop()
+            if cur:
+                if cur.right:
+                    stack.append(cur.right)
                 
-                stack.append(cur_node)
+                stack.append(cur)
                 stack.append(None) #中节点访问过，但是还没有处理，加入空节点做为标记
                 
-                if cur_node.left:
-                    stack.append(cur_node.left)
+                if cur.left:
+                    stack.append(cur.left)
             
             else:#只有遇到空节点的时候，才将下一个节点放进结果集
-                cur_node = stack.pop()
-                res.append(cur_node.val)
+                cur = stack.pop()
+                res.append(cur.val)
         
         return res
