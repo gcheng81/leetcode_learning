@@ -17,14 +17,16 @@ class Solution:
             q.append(root)
         
         while q:
-            size = len(q)
+            q_len = len(q)
             level = []
-            for _ in range(size):
+            for _ in range(q_len): # len(q) will change, so we need q_len
                 cur = q.popleft()
                 if cur:
                     level.append(cur.val)
-                    q.append(cur.left)
-                    q.append(cur.right)
+                    if cur.left:
+                        q.append(cur.left)
+                    if cur.right:
+                        q.append(cur.right)
             
             if level:
                 res.append(level)
