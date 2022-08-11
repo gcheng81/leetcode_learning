@@ -21,15 +21,13 @@ class Solution:
             level = []
             for _ in range(q_len): # len(q) will change, so we need q_len
                 cur = q.popleft()
-                if cur:
-                    level.append(cur.val)
-                    if cur.left:
-                        q.append(cur.left)
-                    if cur.right:
-                        q.append(cur.right)
+                level.append(cur.val)
+                if cur.left:
+                    q.append(cur.left)
+                if cur.right:
+                    q.append(cur.right)
             
-            if level:
-                res.append(level)
+            res.append(level)
         return res
       
  # Solution 2: Recursion
