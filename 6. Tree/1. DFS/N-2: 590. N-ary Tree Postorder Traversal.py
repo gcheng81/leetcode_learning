@@ -25,3 +25,19 @@ class Solution:
         return stack
     
  # Solution 2: Iteration
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        # left, right, mid
+        stack = []
+        res = []
+        
+        if root:
+            stack.append(root)
+        
+        while stack:
+            cur = stack.pop()
+            if cur:
+                res.append(cur.val)
+                stack.extend(cur.children)
+                
+        return res[::-1]
