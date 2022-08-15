@@ -25,3 +25,21 @@ class Solution:
 
       
 # Solution 2: Iteration
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        # mid, left, right
+        stack = []
+        res = []
+        if root:
+            stack.append(root)
+            
+        while stack:
+            cur = stack.pop()
+            if cur:
+                res.append(cur.val)
+                stack.extend(cur.children[::-1])
+            
+        return res
+
+        
+      
