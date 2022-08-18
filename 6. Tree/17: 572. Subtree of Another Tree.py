@@ -27,3 +27,5 @@ class Solution:
         
         return self.isSameTree(s.left, t.left) and self.isSameTree(s.right, t.right)
         
+
+  # Solution 2
