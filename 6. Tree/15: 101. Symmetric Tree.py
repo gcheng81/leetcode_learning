@@ -21,3 +21,4 @@ class Solution:
             return False
         return self.isSymRecursion(left.left, right.right) and self.isSymRecursion(left.right, right.left)
         
+# Solution 2
