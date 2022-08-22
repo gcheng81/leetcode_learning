@@ -7,7 +7,7 @@ class Solution:
         return res
         
     def backtracking(self, n, k, res, start_pos, path):
-        if len(path) == k:
+        if len(path) == k: # 终止条件
             res.append(path[:])
             return
         
@@ -15,4 +15,5 @@ class Solution:
             path.append(i)
             self.backtracking(n, k, res, i+1, path)
             path.pop()
+        
         
