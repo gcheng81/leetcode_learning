@@ -17,3 +17,8 @@ class Solution:
             path.pop()
         
         
+# Optimization
+for i in range(start_pos, n+1-(k-len(path))
+# len(path): 已经选取的元素个数
+# k-len(path): 还未选取的元素个数
+# n+1-(k-len(path)): 还未选取的元素至多要从哪里开始搜索
