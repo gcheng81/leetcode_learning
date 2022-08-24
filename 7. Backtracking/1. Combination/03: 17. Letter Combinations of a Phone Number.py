@@ -19,8 +19,8 @@ class Solution:
                 res.append(cur_str)
                 return
             
-            for ch in letterMap[digits[i]]:
-                backtracking(i+1, cur_str+ch)
+            for ch in letterMap[digits[i]]: # 横向遍历 同一层
+                backtracking(i+1, cur_str+ch) # 纵向遍历 下一层
         
         if digits:
             backtracking(0, "")
