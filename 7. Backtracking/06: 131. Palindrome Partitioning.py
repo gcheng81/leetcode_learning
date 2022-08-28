@@ -1,6 +1,6 @@
 "https://leetcode.com/problems/palindrome-partitioning/"
 
-
+# Solution 1: Backtracking
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         if s==None:
@@ -23,3 +23,4 @@ class Solution:
         dfs(s, start_index, path, res)
         return res
         
+# Optimizaiton: add dp
