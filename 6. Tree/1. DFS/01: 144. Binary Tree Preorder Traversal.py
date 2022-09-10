@@ -10,18 +10,22 @@
 # Solution 1: Recursive Traversal
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        # mid, left, right
         res = []
         
-        def traversal(node: TreeNode):
-            if node == None:
-                return 
+        # mid left right
+        def traverse(node):
+            if node is None:
+                return
+            
+            # 如果单独抽出一个二叉树节点，它需要做什么事情？Action: add value to res array
+            # 需要在什么时候（前/中/后序位置）做？前
             res.append(node.val)
-            traversal(node.left)
-            traversal(node.right)
+            traverse(node.left)
+            traverse(node.right)
         
-        traversal(root)
+        traverse(root)
         return res
+                
 
 # Solution 2: Iterative Traversal
 # !Notice: The order of entering the stack
