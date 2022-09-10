@@ -11,17 +11,15 @@ class Node:
 # Solution 1: Recursion
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-        # mid, left, right
-        stack = []
-        def dfs_pre(node):
-            if node==None:
+        res = []
+        def traverse(node):
+            if node is None:
                 return
-            stack.append(node.val)
+            res.append(node.val)
             for child in node.children:
-                dfs_pre(child)
-        
-        dfs_pre(root)
-        return stack
+                traverse(child)
+        traverse(root)
+        return res
 
       
 # Solution 2: Iteration
