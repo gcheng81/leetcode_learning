@@ -11,18 +11,15 @@ class Node:
 # Solution 1: Recursion
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
-        # left, right, mid
-        stack = []
-        
-        def dfs_post(node):
-            if node==None:
+        res = []
+        def traverse(node):
+            if node is None:
                 return
             for child in node.children:
-                dfs_post(child)
-            stack.append(node.val)
-        
-        dfs_post(root)
-        return stack
+                traverse(child)
+            res.append(node.val)
+        traverse(root)
+        return res
     
  # Solution 2: Iteration
 class Solution:
