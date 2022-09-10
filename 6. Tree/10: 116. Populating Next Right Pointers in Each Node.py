@@ -9,7 +9,7 @@ class Node:
         self.right = right
         self.next = next
 """
-# Solution1: DFS: Recursion
+# Solution 1: DFS--Recursion
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         def connect_two_nodes(node1, node2):
