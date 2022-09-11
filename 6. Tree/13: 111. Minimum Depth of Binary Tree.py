@@ -31,5 +31,27 @@ class Solution:
                     q.append(cur.right)
             depth += 1
             
- # Solution 2: DFS           
+# Solution 2: DFS  
+# Recursion
+class Solution:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        else:
+            if not root.left and not root.right:
+                return 1
+        
+            elif root.left and root.right:
+                left_depth = self.minDepth(root.left)
+                right_depth = self.minDepth(root.right)
+                return 1 + min(left_depth, right_depth)
+        
+            elif root.left:
+                left_depth = self.minDepth(root.left)
+                return 1 + left_depth
+        
+            else:
+                right_depth = self.minDepth(root.right)
+                return 1 + right_depth
     
