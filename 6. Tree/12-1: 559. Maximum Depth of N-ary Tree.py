@@ -30,7 +30,7 @@ class Solution:
         return count
 
     
- # Solution 2: DFS-Recursion
+# Solution 2: DFS-Recursion
 class Solution:
     def maxDepth(self, root: 'Node') -> int:
         if not root:
