@@ -7,7 +7,19 @@
 #         self.left = left
 #         self.right = right
 
-# Solution 1: BFS
+# Solution 1: DFS
+# Recursion
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        
+        left_nodes = self.countNodes(root.left)
+        right_nodes = self.countNodes(root.right)
+        return 1+left_nodes+right_nodes
+
+    
+# Solution 2: BFS
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
         q = collections.deque()
