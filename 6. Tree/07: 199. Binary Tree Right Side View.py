@@ -6,6 +6,8 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# Solution 1: BFS
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         res = []
@@ -27,4 +29,23 @@ class Solution:
                 if cur.right:
                     q.append(cur.right)
         return res
-                    
+                 
+        
+# Solution 2: DFS-Recursion
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        right_side = []
+        
+        def traverse(node, level): # level == index of the list
+            if not node:
+                return
+            
+            if level == len(right_side):
+                right_side.append(node.val)
+            traverse(node.right, level+1)
+            traverse(node.left, level+1)
+        
+        traverse(root, 0)
+        return right_side
