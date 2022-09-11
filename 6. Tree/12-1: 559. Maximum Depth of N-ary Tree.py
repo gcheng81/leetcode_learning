@@ -28,3 +28,17 @@ class Solution:
             if level:
                 count += 1
         return count
+
+    
+ # Solution 2: DFS-Recursion
+class Solution:
+    def maxDepth(self, root: 'Node') -> int:
+        if not root:
+            return 0
+        if root.children == []:
+            return 1
+        
+        depths = [self.maxDepth(child) for child in root.children]
+        return 1 + max(depths)
+        
+           
