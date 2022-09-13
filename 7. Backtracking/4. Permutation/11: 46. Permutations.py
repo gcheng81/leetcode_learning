@@ -8,7 +8,7 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         
         def dfs(res, path, nums):
-            if len(path) == len(nums):
+            if len(path) == len(nums): # collect all leaf nodes
                 res.append(path[:])
                 return
             
