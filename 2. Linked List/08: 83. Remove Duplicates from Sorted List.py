@@ -21,3 +21,25 @@ class Solution:
                 pre = pre.next
                 cur = cur.next
         return dummy_head.next
+
+    
+# easier to understand
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return None
+        
+        dummy = ListNode(0, head)
+        slow = head
+        fast = head.next
+        
+        while fast:
+            if slow.val != fast.val:
+                slow = slow.next
+                slow.val = fast.val
+            fast = fast.next
+        # Disconnect from the following repeated elements
+        slow.next = None
+        return dummy.next
+    
+ 
